@@ -58,7 +58,6 @@ public class AlumnoDao extends DaoBase<Alumno> {
 			PreparedStatement stateElimina=con.prepareStatement("delete from alumno where identificador=?");
 			stateElimina.setInt(1, aEliminar.getIdentificador());
 			stateElimina.executeUpdate();
-			con.commit();
 			con.close();
 			return 1;
 		} catch (ClassNotFoundException | SQLException e) {

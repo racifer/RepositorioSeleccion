@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
 import java.util.HashMap;
 
 import Entities.Persona;
@@ -113,13 +114,15 @@ public class PersonaDao extends DaoBase<Persona> {
 	public int insert(Persona params) {
 		try {
 			Connection con=this.getConnection();
-			PreparedStatement stateIngresa=con.prepareStatement("insert into persona (identificador,tipodoc,documento,nombre,apellido,fechanac,direccion) values (?,?,?,?,?,?)");
+			PreparedStatement stateIngresa=con.prepareStatement("insert into persona (identificador,tipodoc,documento,nombre,apellido,fechanac,direccion) values (?,?,?,?,?,?,?)");
 			stateIngresa.setInt(1, params.getIdentificador());
 			stateIngresa.setString(2, params.getTipoDocumento());
 			stateIngresa.setLong(3,	params.getDocumento());			
 			stateIngresa.setString(4, params.getNombre());
 			stateIngresa.setString(5, params.getApellido());
-			stateIngresa.setDate(6, (Date) params.getFechaNac());
+			java.time.LocalDate loca=LocalDate.of(params.getFechaNac().getYear(), params.getFechaNac().getMonth(), params.getFechaNac().getDay());
+			stateIngresa.setDate(6, Date.valueOf(loca));
+			stateIngresa.setString(7, params.getDireccion());
 			 int val=stateIngresa.executeUpdate();
 			con.close();
 			return val;

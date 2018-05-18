@@ -28,6 +28,8 @@ public abstract class DaoBase<T> {
 			Class.forName(this.driver);
 		}
 		Connection conn=DriverManager.getConnection(conString,this.user,this.password);
+
+		conn.setAutoCommit(true);
 		return conn;
 	}
 	public abstract HashMap<Integer,T> getAll();

@@ -119,16 +119,16 @@ public class MAltaAlumno extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
-						if(txtApellido.getValue()==null) {
+						if(txtApellido.getText()==null) {
 							JOptionPane.showMessageDialog( txtApellido.getParent(), "Ingrese apellido", "Falta Apellido",JOptionPane.WARNING_MESSAGE);
 						}else {
-							if(txtNombre.getValue()==null ) {
+							if(txtNombre.getText()==null ) {
 								JOptionPane.showMessageDialog( txtNombre.getParent(), "Ingrese nombre", "Falta Nombre",JOptionPane.WARNING_MESSAGE);
 							}else {
-								if(txtDocumento.getValue()==null) {
+								if(txtDocumento.getText()==null) {
 									JOptionPane.showMessageDialog( txtDocumento.getParent(), "Ingrese documento", "Falta documento",JOptionPane.WARNING_MESSAGE);
 								}else {
-									if(txtFecNac.getValue()==null) {
+									if(txtFecNac.getText()==null) {
 										JOptionPane.showMessageDialog( txtFecNac.getParent(), "Ingrese fecha nacimiento", "Falta fecha nacimiento",JOptionPane.WARNING_MESSAGE);
 									}else {
 										Carrera carr=carrera.stream().findFirst().filter(s->s.getNombre()==cmbCarrera.getSelectedItem().toString()).get();
@@ -146,12 +146,13 @@ public class MAltaAlumno extends JDialog {
 										per.setDocumento((Long)txtDocumento.getValue());
 										per.setTipoDocumento(comboBox.getSelectedItem().toString());
 										per.setFechaNac((Date)txtFecNac.getValue());
-										per.setIdentificador(aArray[alumnos.size()-1].getPers().getIdentificador());
+										per.setIdentificador(aArray[alumnos.size()-1].getPers().getIdentificador()+1);
 										Carrera carr1=carrera.stream().findFirst().filter(s->s.getNombre()==cmbCarrera.getSelectedItem().toString()).get();
 										inscar.setAlumno(al);
 										inscar.setCarrera(carr1);
 										inscar.setFechaInscripcion(new Date());
 										inscar.setCarrera(carr1);
+										al.setPers(per);
 										int p=control.insertarAlumno(al, inscar);
 										if(p==-1) {
 											JOptionPane.showMessageDialog( txtNombre.getParent(), "error", "Falta Nombre",JOptionPane.WARNING_MESSAGE);

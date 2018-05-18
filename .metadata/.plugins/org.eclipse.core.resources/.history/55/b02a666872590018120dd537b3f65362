@@ -1,0 +1,43 @@
+package Dao;
+
+import java.util.HashMap;
+
+import Entities.Curso;
+
+public class CursoDao extends DaoBase<Curso>{
+
+	public CursoDao() {
+		super("BaseAlumnos","postgresql","5432","localhost","postgres","413616Ra","org.postgresql.Driver");
+	}
+
+	@Override
+	public HashMap<Integer, Curso> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int delete(Curso aEliminar) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Curso getOne(Curso params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int modify(Curso params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insert(Curso params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

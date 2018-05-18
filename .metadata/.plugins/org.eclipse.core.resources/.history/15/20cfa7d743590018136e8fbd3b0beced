@@ -1,0 +1,44 @@
+package Dao;
+
+import java.util.HashMap;
+
+import Entities.Persona;
+
+public class PersonaDao extends DaoBase<Persona> {
+
+	public PersonaDao() {
+		super("BaseAlumnos","postgresql","5432","localhost","postgres","413616Ra","org.postgresql.Driver");
+	}
+	@Override
+	public HashMap<Integer, Persona> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int delete(Persona aEliminar) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Persona getOne(Persona params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int modify(Persona params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insert(Persona params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	
+
+}

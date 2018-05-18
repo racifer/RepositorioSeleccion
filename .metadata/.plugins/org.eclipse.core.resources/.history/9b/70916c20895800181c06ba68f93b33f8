@@ -1,0 +1,9 @@
+package Entities;
+
+public class InscripcionCurso {
+
+	public InscripcionCurso() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,9 @@
+package Businnes;
+
+public class ABMAlumnosControlador {
+
+	public ABMAlumnosControlador() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

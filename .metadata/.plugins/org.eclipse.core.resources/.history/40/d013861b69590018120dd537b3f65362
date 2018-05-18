@@ -1,0 +1,65 @@
+package Dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+
+import Entities.Carrera;
+
+public class CarreraDao extends DaoBase<Carrera>{
+	public CarreraDao() {
+		super("BaseAlumnos","postgresql","5432","localhost","postgres","413616Ra","org.postgresql.Driver");
+	}
+	@Override
+	public HashMap<Integer, Carrera> getAll() {
+		try {
+			Connection con=this.getConnection();
+			Statement stateCarr=con.createStatement();
+			ResultSet setCarr=stateCarr.executeQuery("SELECT * FROM carrera Order by identificador");
+			HashMap<Integer, Carrera> tabla=new HashMap<Integer,Carrera>();
+			int i=1;
+			while(setCarr.next()) {
+				
+				Carrera car=new Carrera();
+				car.setIdentificador(setCarr.getInt("identificador"));
+				car.setNombre(setCarr.getString("nombre"));
+				car.setDescripcion(setCarr.getString("descripcion"));
+				car.setFechaDesde(setCarr.getDate("fechadesde"));
+				car.setFechaHasta(setCarr.getDate("fechahasta"));
+				tabla.put(i, car);
+				i++;
+			}
+			return tabla;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+	}
+
+	@Override
+	public int delete(Carrera aEliminar) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Carrera getOne(Carrera params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int modify(Carrera params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insert(Carrera params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

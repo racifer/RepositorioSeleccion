@@ -1,0 +1,9 @@
+package Businnes;
+
+public class InscripcionAMateriaControlador {
+
+	public InscripcionAMateriaControlador() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,21 @@
+package Entities;
+
+public class InscripcionCarrera {
+	private Carrera carrera;
+	private Alumno alumno;
+	public Carrera getCarrera() {
+		return carrera;
+	}
+	public void setCarrera(Carrera carrera) {
+		this.carrera = carrera;
+	}
+	public Alumno getAlumno() {
+		return alumno;
+	}
+	public void setAlumno(Alumno alumno) {
+		this.alumno = alumno;
+	}
+	public boolean equals(InscripcionCarrera icar) {
+		return icar.getCarrera().getIdentificador()==this.getCarrera().getIdentificador()&&icar.getAlumno().getIdentificador()==this.getAlumno().getIdentificador();
+	}
+}

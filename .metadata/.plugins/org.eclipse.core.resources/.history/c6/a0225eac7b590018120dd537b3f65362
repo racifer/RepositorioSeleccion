@@ -1,0 +1,76 @@
+package Dao;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+
+import Entities.Alumno;
+import Entities.Carrera;
+import Entities.Curso;
+import Entities.InscripcionCarrera;
+import Entities.InscripcionCurso;
+
+public class InscripcionCursoDao extends DaoBase<InscripcionCurso> {
+
+	public InscripcionCursoDao() {
+		super("BaseAlumnos","postgresql","5432","localhost","postgres","413616Ra","org.postgresql.Driver");
+	}
+
+@Override
+public HashMap<Integer, InscripcionCurso> getAll() {
+	try {
+		Connection con=this.getConnection();
+		Statement stateInscripcionCarrera=con.createStatement();
+		ResultSet res=stateInscripcionCarrera.executeQuery("SELECT * FROM inscripciones_curso");
+		HashMap<Integer,InscripcionCurso> tabla=new HashMap<Integer,InscripcionCurso>();
+		int i=1;
+		while(res.next()) {
+			AlumnoDao alumn=new AlumnoDao();
+			Alumno al=new Alumno();
+			al.setIdentificador(res.getInt("idalumno"));
+			al=alumn.getOne(al);
+			CursoDao carDao=new CursoDao();
+			Curso car=new Curso();
+			car.setIdentificador(res.getInt("idcurso"));
+			car=carDao.getOne(car);
+			InscripcionCurso inscar=new InscripcionCurso();
+			inscar.setFechaInscripcion(res.getDate("fechainscripcion"));
+			inscar.setAlumno(al);
+			inscar.setCurso(car);
+			inscar.setNotaFinal(res.getDouble("notafinal"));
+			tabla.put(i, inscar);
+			i++;
+		}
+		return tabla;
+	} catch (ClassNotFoundException | SQLException e) {
+		return null;
+	}
+}
+
+@Override
+public int delete(InscripcionCurso aEliminar) {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+@Override
+public InscripcionCurso getOne(InscripcionCurso params) {
+	// TODO Auto-generated method stub
+	return null;
+}
+
+@Override
+public int modify(InscripcionCurso params) {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+@Override
+public int insert(InscripcionCurso params) {
+	// TODO Auto-generated method stub
+	return 0;
+}
+
+}

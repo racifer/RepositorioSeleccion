@@ -1,0 +1,18 @@
+package Presentation;
+import java.util.HashMap;
+
+import Dao.*;
+import Entities.Alumno;
+public class PruebaDaos {
+
+	public PruebaDaos() {
+		// TODO Auto-generated constructor stub
+	}
+	public static void main(String args[]) {
+		AlumnoDao dao=new AlumnoDao();
+		HashMap<Integer,Alumno> tabla=dao.getAll();
+		for (Alumno alumn : tabla.values()) {
+			System.out.println("Legajo:"+alumn.getLegajo()+"\nNombre:"+alumn.getPers().getNombre());
+		}
+	}
+}

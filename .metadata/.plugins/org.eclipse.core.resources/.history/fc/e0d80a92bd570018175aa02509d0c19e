@@ -1,0 +1,9 @@
+package ejercicios;
+
+public class enums {
+
+	public enums() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

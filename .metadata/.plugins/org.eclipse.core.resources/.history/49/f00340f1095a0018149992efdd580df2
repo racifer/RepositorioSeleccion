@@ -1,0 +1,66 @@
+package Businnes;
+import java.util.Collection;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+
+import Dao.AlumnoDao;
+import Dao.CarreraDao;
+import Dao.InscripcionCarreraDao;
+import Dao.PersonaDao;
+import Entities.Alumno;
+import Entities.Carrera;
+import Entities.InscripcionCarrera;
+
+public class ABMAlumnosControlador {
+	private AlumnoDao aDao;
+	private CarreraDao cDao;
+	private PersonaDao pDao;
+	private InscripcionCarreraDao icDao;
+	private Collection<Alumno> coleccionAlumnos;
+	public ABMAlumnosControlador() {
+		aDao=new AlumnoDao();
+		cDao=new CarreraDao();
+		pDao=new PersonaDao();
+		icDao=new InscripcionCarreraDao();
+		coleccionAlumnos=aDao.getAll().values();
+	}
+	
+	public Collection<Carrera> listaCarreras(){
+		HashMap<Integer,Carrera> tabla=cDao.getAll();
+		return tabla.values();
+	}
+	
+	public Collection<Alumno> listaAlumnos(){
+		HashMap<Integer,Alumno> tabla=aDao.getAll();
+		return tabla.values();
+	}
+	
+	public boolean comprobarExistenciaAlumno(Alumno al) {
+		return coleccionAlumnos.stream().filter(a->a.equals(al)).findFirst().isPresent();
+	}
+	
+	public Alumno buscarAlumno(Alumno al) {
+		return coleccionAlumnos.stream().filter(a->a.equals(al)).findFirst().get();
+	}
+	
+	public int insertarAlumno(Alumno al,InscripcionCarrera inscar) {
+		if(comprobarExistenciaAlumno(al)) {
+			return -2;
+		}
+		if(al.getLegajo()==-1 || al.getPers().getNombre() == "" || al.getPers().getApellido()=="" || al.getPers().getFechaNac()==new Date()) {
+			return -3;
+		}
+		int pE=pDao.insert(al.getPers());
+		if(pE==-1) {
+			return pE;
+		}
+		int icE= icDao.insert(inscar);
+		if(icE==-1) {
+			return icE;
+		}
+		return aDao.insert(al);
+	}
+	
+	public
+}

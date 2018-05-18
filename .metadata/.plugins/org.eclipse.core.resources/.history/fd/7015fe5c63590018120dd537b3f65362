@@ -1,0 +1,45 @@
+package Dao;
+
+import Entities.Persona;
+
+import java.util.HashMap;
+
+import Entities.InscripcionCarrera;
+
+public class InscripcionCarreraDao extends DaoBase<InscripcionCarrera> {
+
+	public InscripcionCarreraDao() {
+		super("BaseAlumnos","postgresql","5432","localhost","postgres","413616Ra","org.postgresql.Driver");
+	}
+	@Override
+	public HashMap<Integer, InscripcionCarrera> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int delete(InscripcionCarrera aEliminar) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public InscripcionCarrera getOne(InscripcionCarrera params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int modify(InscripcionCarrera params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insert(InscripcionCarrera params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+}

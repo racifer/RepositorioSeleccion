@@ -1,0 +1,39 @@
+package Businnes;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+
+import Dao.AlumnoDao;
+import Dao.CarreraDao;
+import Dao.InscripcionCarreraDao;
+import Dao.PersonaDao;
+import Entities.Alumno;
+import Entities.Carrera;
+
+public class ABMAlumnosControlador {
+	private AlumnoDao aDao;
+	private CarreraDao cDao;
+	private PersonaDao pDao;
+	private InscripcionCarreraDao icDao;
+	
+	public ABMAlumnosControlador() {
+		aDao=new AlumnoDao();
+		cDao=new CarreraDao();
+		pDao=new PersonaDao();
+		icDao=new InscripcionCarreraDao();
+	}
+	
+	public Collection<Carrera> listaCarreras(){
+		HashMap<Integer,Carrera> tabla=cDao.getAll();
+		return tabla.values();
+	}
+	
+	public Collection<Alumno> listaAlumnos(){
+		HashMap<Integer,Alumno> tabla=aDao.getAll();
+		return tabla.values();
+	}
+	
+	public boolean comprobarExistenciaAlumno(Alumno al) {
+		return
+	}
+}

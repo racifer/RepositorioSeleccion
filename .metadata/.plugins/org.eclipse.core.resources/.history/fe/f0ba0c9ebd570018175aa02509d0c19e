@@ -1,0 +1,8 @@
+package ejercicios;
+
+public class enums {
+	enum TIPO_DOC {
+		DNI,LC
+	}
+	
+}

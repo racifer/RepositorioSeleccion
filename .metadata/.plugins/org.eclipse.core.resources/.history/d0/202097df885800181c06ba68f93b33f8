@@ -1,0 +1,9 @@
+package Entities;
+
+public class Curso {
+
+	public Curso() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

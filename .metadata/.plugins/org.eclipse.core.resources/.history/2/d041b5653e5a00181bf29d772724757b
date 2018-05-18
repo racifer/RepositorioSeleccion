@@ -1,0 +1,115 @@
+package Presentation;
+
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
+import java.util.Collection;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Businnes.ABMAlumnosControlador;
+import Entities.Carrera;
+
+public class MAltaAlumno extends JDialog {
+
+	private final JPanel contentPanel = new JPanel();
+
+
+	/**
+	 * Create the dialog.
+	 */
+	public MAltaAlumno(ABMAlumnosControlador control) {
+		setBounds(100, 100, 450, 300);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setLayout(null);
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		JLabel lblNombre = new JLabel("Nombre");
+		lblNombre.setBounds(12, 12, 70, 15);
+		contentPanel.add(lblNombre);
+		
+		JFormattedTextField txtNombre = new JFormattedTextField();
+		txtNombre.setColumns(10);
+		txtNombre.setBounds(72, 10, 113, 19);
+		contentPanel.add(txtNombre);
+		
+		JLabel lblApellido = new JLabel("Apellido");
+		lblApellido.setBounds(203, 12, 70, 15);
+		contentPanel.add(lblApellido);
+		
+		JFormattedTextField txtApellido = new JFormattedTextField();
+		txtApellido.setBounds(267, 10, 161, 19);
+		contentPanel.add(txtApellido);
+		
+		JLabel lblDireccion = new JLabel("Direccion");
+		lblDireccion.setBounds(12, 39, 70, 15);
+		contentPanel.add(lblDireccion);
+		
+		JFormattedTextField txtDireccion = new JFormattedTextField();
+		txtDireccion.setBounds(82, 39, 286, 19);
+		contentPanel.add(txtDireccion);
+		
+		JLabel lblTipoDocumento = new JLabel("Tipo Documento");
+		lblTipoDocumento.setBounds(12, 66, 114, 15);
+		contentPanel.add(lblTipoDocumento);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"DNI", "LC", "LE"}));
+		comboBox.setBounds(135, 61, 52, 24);
+		contentPanel.add(comboBox);
+		
+		JLabel lblDocumento = new JLabel("Documento");
+		lblDocumento.setBounds(193, 66, 80, 15);
+		contentPanel.add(lblDocumento);
+		
+		JFormattedTextField txtDocumento = new JFormattedTextField();
+		txtDocumento.setBounds(282, 64, 146, 19);
+		contentPanel.add(txtDocumento);
+		
+		JLabel lblFechaNacimiento = new JLabel("Fecha Nacimiento");
+		lblFechaNacimiento.setBounds(12, 93, 136, 15);
+		contentPanel.add(lblFechaNacimiento);
+		
+		JFormattedTextField txtFecNac = new JFormattedTextField();
+		txtFecNac.setBounds(145, 97, 128, 19);
+		contentPanel.add(txtFecNac);
+		
+		JLabel lblCarrera = new JLabel("Carrera");
+		lblCarrera.setBounds(12, 131, 70, 15);
+		contentPanel.add(lblCarrera);
+		
+		JComboBox cmbCarrera = new JComboBox();
+		cmbCarrera.setBounds(94, 126, 179, 24);
+		contentPanel.add(cmbCarrera);
+		Collection<Carrera> carrera=control.listaCarreras();
+		DefaultComboBoxModel<Carrera> model=new DefaultComboBoxModel<Carrera>();
+		for (Carrera carrera2 : carrera) {
+			model.addElement(carrera2);
+		}
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
+		{
+			JPanel buttonPane = new JPanel();
+			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
+			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			{
+				JButton okButton = new JButton("OK");
+				okButton.setActionCommand("OK");
+				buttonPane.add(okButton);
+				getRootPane().setDefaultButton(okButton);
+			}
+			{
+				JButton cancelButton = new JButton("Cancel");
+				cancelButton.setActionCommand("Cancel");
+				buttonPane.add(cancelButton);
+			}
+		}
+	}
+	
+
+}

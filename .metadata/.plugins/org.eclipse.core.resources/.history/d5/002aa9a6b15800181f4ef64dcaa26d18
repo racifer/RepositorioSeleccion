@@ -1,0 +1,50 @@
+package Dao;
+
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.HashMap;
+
+import Entities.Alumno;
+
+public class AlumnoDao extends DaoBase<Alumno> {
+
+	public AlumnoDao() {
+		super("BaseAlumnos","postgresql","5432","localhost","postgres","","org.postgresql.Driver");
+	}
+
+	@Override
+	public HashMap<Integer, Alumno> getAll() {
+		try {
+			Connection con=this.getConnection();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+	}
+
+	@Override
+	public int delete(Alumno aEliminar) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Alumno getOne(Alumno params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashMap<Integer, Alumno> modify(Alumno params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashMap<Integer, Alumno> insert(Alumno params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

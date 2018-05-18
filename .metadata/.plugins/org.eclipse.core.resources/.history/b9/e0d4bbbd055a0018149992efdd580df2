@@ -1,0 +1,26 @@
+package Businnes;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+
+import Dao.AlumnoDao;
+import Dao.CarreraDao;
+import Dao.PersonaDao;
+import Entities.Carrera;
+
+public class ABMAlumnosControlador {
+	private AlumnoDao aDao;
+	private CarreraDao cDao;
+	private PersonaDao pDao;
+	
+	public ABMAlumnosControlador() {
+		aDao=new AlumnoDao();
+		cDao=new CarreraDao();
+		pDao=new PersonaDao();
+	}
+	
+	public Collection<Carrera> listaCarreras(){
+		HashMap<Integer,Carrera> tabla=cDao.getAll();
+		return tabla.values();
+	}
+}

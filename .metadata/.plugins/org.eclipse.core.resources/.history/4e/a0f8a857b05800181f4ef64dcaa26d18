@@ -1,0 +1,21 @@
+package Entities;
+
+public class Alumno {
+	private int idpersona;
+	private int legajo;
+	public int getIdPersona() {
+		return idpersona;
+	}
+	public void setIdPersona(int idPersona) {
+		this.idpersona = idPersona;
+	}
+	public int getLegajo() {
+		return legajo;
+	}
+	public void setLegajo(int legajo) {
+		this.legajo = legajo;
+	}
+	public boolean equals(Alumno al) {
+		return al.legajo==getLegajo()&&;
+	}
+}

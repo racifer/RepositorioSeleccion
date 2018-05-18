@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="ejercicios.Enumerables"/>
+<fullyQualifiedTypeName name="ejercicios.Enumerables.TIPO_DOC"/>
+<fullyQualifiedTypeName name="ejercicios.Persona"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="java.lang.Integer"/>
+<fullyQualifiedTypeName name="java.beans.Statement"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.Statement"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="java.sql.SQLData"/>
+<fullyQualifiedTypeName name="java.time.LocalDate"/>
+<fullyQualifiedTypeName name="Dao.DaoBase"/>
+<fullyQualifiedTypeName name="Dao.AlumnoDao"/>
+<fullyQualifiedTypeName name="Entities.Curso"/>
+<fullyQualifiedTypeName name="java.sql.PreparedStatement"/>
+<fullyQualifiedTypeName name="java.sql.Date"/>
+<fullyQualifiedTypeName name="Dao.PersonaDao"/>
+<fullyQualifiedTypeName name="Dao.CarreraDao"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="Dao.InscripcionCarreraDao"/>
+<fullyQualifiedTypeName name="Dao.InscripcionCursoDao"/>
+<fullyQualifiedTypeName name="Entities.InscripcionCurso"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="Entities.Carrera"/>
+<fullyQualifiedTypeName name="javax.swing.DefaultComboBoxModel"/>
+<fullyQualifiedTypeName name="javax.swing.text.DateFormatter"/>
+<fullyQualifiedTypeName name="java.text.spi.DateFormatProvider"/>
+<fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
+<fullyQualifiedTypeName name="java.text.DateFormat"/>
+<fullyQualifiedTypeName name="java.awt.TrayIcon.MessageType"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="Presentation.MAltaAlumno"/>
+<fullyQualifiedTypeName name="Entities.Persona"/>
+<fullyQualifiedTypeName name="Entities.Alumno"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.text.NumberFormat"/>
+<fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="Entities.InscripcionCarrera"/>
+</qualifiedTypeNameHistroy>

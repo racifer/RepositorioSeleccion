@@ -1,0 +1,9 @@
+package Entities;
+
+public class InscripcionCarrera {
+
+	public InscripcionCarrera() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

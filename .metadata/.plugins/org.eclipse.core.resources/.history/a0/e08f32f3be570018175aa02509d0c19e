@@ -1,0 +1,60 @@
+package ejercicios;
+import java.util.Date;
+
+import ejercicios.Enumerables.*;
+public class Persona {
+	public TIPO_DOC getTipoDocumento() {
+		return TipoDocumento;
+	}
+
+	public void setTipoDocumento(TIPO_DOC tipoDocumento) {
+		TipoDocumento = tipoDocumento;
+	}
+
+	public int getNroDocumento() {
+		return NroDocumento;
+	}
+
+	public void setNroDocumento(int nroDocumento) {
+		NroDocumento = nroDocumento;
+	}
+
+	public String getNombre() {
+		return Nombre;
+	}
+
+	public void setNombre(String nombre) {
+		Nombre = nombre;
+	}
+
+	public String getApellido() {
+		return Apellido;
+	}
+
+	public void setApellido(String apellido) {
+		Apellido = apellido;
+	}
+
+	public Date getFechaNacimiento() {
+		return FechaNacimiento;
+	}
+
+	public void setFechaNacimiento(Date fechaNacimiento) {
+		FechaNacimiento = fechaNacimiento;
+	}
+
+	private TIPO_DOC TipoDocumento;
+	private int NroDocumento;
+	private String Nombre;
+	private String Apellido;
+	private Date FechaNacimiento;
+	
+	public Persona() {
+		setTipoDocumento(TIPO_DOC.DNI);
+		setNroDocumento(0);
+		setApellido("");
+		setNombre("");
+		setFechaNacimiento(new Date());
+	}
+
+}

@@ -1,0 +1,9 @@
+package Dao;
+
+public class DaoBase {
+
+	public DaoBase() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

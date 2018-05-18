@@ -1,0 +1,9 @@
+package Dao;
+
+public class InscripcionCarreraDao {
+
+	public InscripcionCarreraDao() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

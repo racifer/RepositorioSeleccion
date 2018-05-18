@@ -1,0 +1,9 @@
+package Dao;
+
+public class PersonaDao {
+
+	public PersonaDao() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,43 @@
+package Dao;
+
+import java.util.HashMap;
+
+import Entities.Alumno;
+
+public class AlumnoDao extends DaoBase<Alumno> {
+
+	public AlumnoDao() {
+		super("BaseAlumnos","postgresql","5432","localhost",);
+	}
+
+	@Override
+	public HashMap<Integer, Alumno> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int delete(Alumno aEliminar) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Alumno getOne(Alumno params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashMap<Integer, Alumno> modify(Alumno params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashMap<Integer, Alumno> insert(Alumno params) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

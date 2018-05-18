@@ -1,0 +1,114 @@
+package Dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.HashMap;
+
+import Entities.Alumno;
+import Entities.Persona;
+
+public class AlumnoDao extends DaoBase<Alumno> {
+
+	public AlumnoDao() {
+		super("BaseAlumnos","postgresql","5432","localhost","postgres","413616Ra","org.postgresql.Driver");
+	}
+
+	@Override
+	public HashMap<Integer, Alumno> getAll() {
+		try {
+			Connection con=this.getConnection();
+			Statement stateAlumno=con.createStatement();
+			ResultSet resultAlumno=stateAlumno.executeQuery("SELECT * FROM alumno");
+			HashMap<Integer,Alumno> tabla=new HashMap<Integer,Alumno>();
+			while(resultAlumno.next()) {
+				PreparedStatement statePersona=con.prepareStatement("SELECT * FROM persona where identificador = ?");
+				statePersona.setInt(1, resultAlumno.getInt("idpersona"));
+				ResultSet resultPersonaAlumno=statePersona.executeQuery();
+				Persona per=new Persona();
+				if(resultPersonaAlumno.next()) {
+					per.setNombre(resultPersonaAlumno.getString("nombre"));
+					per.setApellido(resultPersonaAlumno.getString("apellido"));
+					per.setTipoDocumento(resultPersonaAlumno.getString("tipodoc"));
+					per.setDocumento(resultPersonaAlumno.getLong("documento"));
+					per.setDireccion(resultPersonaAlumno.getString("direccion"));
+					per.setFechaNac(resultPersonaAlumno.getDate("fechanac"));
+				}
+				Alumno al=new Alumno();
+				al.setIdentificador(resultAlumno.getInt("identificador"));
+				al.setLegajo(resultAlumno.getInt("legajo"));
+				al.setPers(per);
+				tabla.put(al.getIdentificador(), al);
+			}
+			con.close();
+			return tabla;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+	}
+
+	@Override
+	public  int delete(Alumno aEliminar) {
+		// TODO Auto-generated method stub
+		try {
+			Connection con=this.getConnection();
+			PreparedStatement stateElimina=con.prepareStatement("delete from alumnos where identificador=?");
+			stateElimina.setInt(1, aEliminar.getIdentificador());
+			stateElimina.execute();
+			con.close();
+			return 1;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			return 0;
+		}
+	}
+
+	@Override
+	public Alumno getOne(Alumno params) {
+		try {
+			Connection con=this.getConnection();
+			PreparedStatement stateAlumno=con.prepareStatement("SELECT * FROM alumno where identificador=?");
+			stateAlumno.setInt(1, params.getIdentificador());
+			ResultSet resultAlumno=stateAlumno.executeQuery();
+			Alumno al=new Alumno();
+			if(resultAlumno.next()) {
+				PreparedStatement statePersona=con.prepareStatement("SELECT * FROM persona where identificador = ?");
+				statePersona.setInt(1, resultAlumno.getInt("idpersona"));
+				ResultSet resultPersonaAlumno=statePersona.executeQuery();
+				Persona per=new Persona();
+				if(resultPersonaAlumno.next()) {
+					per.setNombre(resultPersonaAlumno.getString("nombre"));
+					per.setApellido(resultPersonaAlumno.getString("apellido"));
+					per.setTipoDocumento(resultPersonaAlumno.getString("tipodoc"));
+					per.setDocumento(resultPersonaAlumno.getLong("documento"));
+					per.setDireccion(resultPersonaAlumno.getString("direccion"));
+					per.setFechaNac(resultPersonaAlumno.getDate("fechanac"));
+				}
+				al.setIdentificador(resultAlumno.getInt("identificador"));
+				al.setLegajo(resultAlumno.getInt("legajo"));
+				al.setPers(per);
+			}
+			con.close();
+			return al;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			return null;
+		}
+	}
+
+	@Override
+	public int modify(Alumno params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int insert(Alumno params) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
